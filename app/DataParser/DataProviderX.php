@@ -1,16 +1,14 @@
 <?php
 
-
 namespace App\DataParser;
 
 use App\Contracts\DataProvider;
-use App\Enums\Enum;
 
 class DataProviderX extends DataParser implements DataProvider
 {
-    const AUTHORIZED = 1;
-    const DECLINE = 2;
-    const REFUNDED = 3;
+    public const AUTHORIZED = 1;
+    public const DECLINE = 2;
+    public const REFUNDED = 3;
 
     public function toArray($data): array
     {

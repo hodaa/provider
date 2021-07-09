@@ -6,7 +6,6 @@ use App\Services\DataProviderService;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Validation\ValidationException;
 
 class DataProviderController extends Controller
 {
@@ -26,9 +25,8 @@ class DataProviderController extends Controller
 
         foreach ($files as $fileName) {
             $result[] = $dataProviderService->extractData($fileName);
-
         }
-        $result = !empty($result) ? Arr::collapse($result): [];
+        $result = !empty($result) ? Arr::collapse($result) : [];
 
         if (!empty($request->input())) {
             $result = $dataProviderService->filter($result, $request->input());
